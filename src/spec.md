@@ -1,10 +1,10 @@
 # Specification
 
 ## Summary
-**Goal:** Seed one additional red floral shirt item so searches for Shirt + Red + Floral reliably return a result with at least one associated shop, and the item has a valid static photo.
+**Goal:** Seed exactly one new Women’s blue floral dress item in the backend dataset and add a matching static photo asset that the item references.
 
 **Planned changes:**
-- Add a new seeded item in `backend/main.mo` within `_initializeShops` with `itemType="Shirt"`, `color="Red"`, `pattern="Floral"`, a non-empty `photo` path, and at least one shop entry in its item details.
-- Add a new static image file under `frontend/public/assets/generated` and set the seeded item’s `photo` field to exactly `/assets/generated/men_shirt_red_floral.dim_480x640.jpeg`.
+- Update `backend/main.mo` (`_initializeShops`) to seed one new `#women` ClothingItem with `itemType = "Dress"`, `color = "Blue"`, and `pattern = "Floral"`, and ensure at least one seeded shop carries it so `getItemDetails` returns a non-empty shops list.
+- Add a new static image file at `frontend/public/assets/generated/women_blue_floral_dress.dim_480x640.jpeg` and set the seeded item’s `photo` field to exactly `/assets/generated/women_blue_floral_dress.dim_480x640.jpeg`.
 
-**User-visible outcome:** Searching with filters itemType=Shirt, color=Red, pattern=Floral shows at least one result, and opening the item details shows at least one shop and a working item photo.
+**User-visible outcome:** Searching Women → Dress → Blue → Floral returns the newly seeded dress, and its details page/response includes a working photo URL and at least one shop that carries it.

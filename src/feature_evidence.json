@@ -2,8 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-add-a-new-static-clothing-photo-file-under-frontend-public-assets-generated-for-the-newly-seeded-red-floral-shirt-item-and-ensure-the-seeded-backend-item-s-photo-field-exactly-matches-the-added-filename-including-extension",
-      "featureTitle": "Add a new static clothing photo file under `frontend/public/assets/generated` for the newly seeded red floral shirt item, and ensure the seeded backend item’s `photo` field exactly matches the added filename (including extension).",
+      "featureId": "feature-add-a-new-static-clothing-photo-image-file-for-the-newly-seeded-women-s-blue-floral-dress-under-frontend-public-assets-generated-and-ensure-it-loads-successfully-via-direct-browser-url-assets-generated-filename-without-a-404",
+      "featureTitle": "Add a new static clothing photo image file for the newly seeded Women’s blue floral dress under `frontend/public/assets/generated` and ensure it loads successfully via direct browser URL `/assets/generated/<filename>` without a 404.",
       "files": [],
       "components": [
         "core-infrastructure@1.0.2",
@@ -14,7 +14,7 @@
         "blob-storage@4.0.0"
       ],
       "testIds": [
-        "REQ-30"
+        "REQ-32"
       ],
       "confidence": "high"
     }

@@ -6,7 +6,9 @@ import Runtime "mo:core/Runtime";
 import Blob "mo:core/Blob";
 import MixinStorage "blob-storage/Mixin";
 import Storage "blob-storage/Storage";
+import Migration "migration";
 
+(with migration = Migration.run)
 actor {
   include MixinStorage();
 
@@ -266,6 +268,15 @@ actor {
             pattern = "Ruffle";
             price = 2600;
             photo = "/assets/generated/women_ivory_ruffle_dress.jpeg";
+          },
+          {
+            name = "Women's Blue Floral Dress";
+            category = #women;
+            itemType = "Dress";
+            color = "Blue";
+            pattern = "Floral";
+            price = 2900;
+            photo = "/assets/generated/women_blue_floral_dress.jpeg";
           },
         ];
       };

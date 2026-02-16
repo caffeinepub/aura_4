@@ -1,21 +1,21 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add static asset for seeded red floral men’s shirt",
+  "title": "Add generated static photo asset for Women’s blue floral dress seed item",
   "requirements": [
     {
-      "id": "REQ-30",
-      "summary": "Add the required static generated clothing image asset so the seeded red floral shirt photo path resolves correctly in the UI.",
+      "id": "REQ-32",
+      "summary": "Add the generated women’s blue floral dress image to the public generated assets folder so it is served at the expected URL path.",
       "acceptanceCriteria": [
-        "A new image file exists at `frontend/public/assets/generated/men_shirt_red_floral.dim_480x640.jpeg`.",
-        "The new seeded item’s `photo` field is exactly `/assets/generated/men_shirt_red_floral.dim_480x640.jpeg`.",
-        "Loading the app and running a search for itemType=Shirt, color=Red, pattern=Floral shows the new item in results without a broken image (image loads successfully, or the existing fallback behavior is used if it fails)."
+        "A new image file exists at `frontend/public/assets/generated/women_blue_floral_dress.dim_480x640.jpeg`.",
+        "Visiting `/assets/generated/women_blue_floral_dress.dim_480x640.jpeg` in the browser returns the image (no 404).",
+        "The backend seeded item added in REQ-31 references this image exactly as `photo = \"/assets/generated/women_blue_floral_dress.dim_480x640.jpeg\"`."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/generated/men_shirt_red_floral.dim_480x640.jpeg",
+          "path": "frontend/public/assets/generated/women_blue_floral_dress.dim_480x640.jpeg",
           "operation": "create",
-          "description": "Add the static clothing photo asset file for the newly seeded red floral men’s shirt. This filename and extension must exactly match `/assets/generated/men_shirt_red_floral.dim_480x640.jpeg` so existing UI components (e.g., ItemCard/ItemDetailDialog using normalizePhotoPath) can render it without a broken image."
+          "description": "Add the required static image asset file at this exact path and filename so it can be served directly by the frontend as `/assets/generated/women_blue_floral_dress.dim_480x640.jpeg` (no 404)."
         }
       ]
     }

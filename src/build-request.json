@@ -1,59 +1,59 @@
 {
   "kind": "build_request",
-  "title": "Seed an additional red floral shirt item",
+  "title": "Add a Women’s blue floral dress item (seeded) with matching photo asset",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-29",
-      "text": "Add one additional seeded shirt item with color=\"Red\" and pattern=\"Floral\" to the backend initial dataset in `backend/main.mo` (`_initializeShops`), so that searching with filters itemType=Shirt, color=Red, pattern=Floral returns at least one result and the item has at least one shop in its item details.",
+      "id": "REQ-31",
+      "text": "Update the backend seeded dataset in `backend/main.mo` (`_initializeShops`) to include exactly one new Women-category clothing item that is a blue dress with a floral pattern, so that searching with category=Women, itemType=\"Dress\", color=\"Blue\", pattern=\"Floral\" returns this item and `getItemDetails` for the item returns at least one shop in the shops list.",
       "target": "backend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "recent-messages"
         ],
         "quotes": [
-          "add one more shirt color red patten floral"
+          "on the category women add one blue dress with floral pattern"
         ]
       },
       "acceptanceCriteria": [
-        "With a fresh canister state (empty shops list) and after `_initializeShops()` runs, `searchItems(null, ?\"Shirt\", ?\"Red\", ?\"Floral\")` returns an array with length >= 1.",
-        "Calling `getItemDetails(<new item name>)` returns the item plus a non-empty shops array (length >= 1).",
-        "The new seeded item has `itemType` set to \"Shirt\", `color` set to \"Red\", and `pattern` set to \"Floral\" (matching should work case-insensitively as implemented by `normalizeText`).",
-        "The new seeded item includes a non-empty `photo` string that starts with `/assets/generated/` and matches an actual static asset filename added to the frontend."
+        "When the canister is initialized (shops list is empty), `_initializeShops` seeds a new ClothingItem with `category = #women`, `itemType = \"Dress\"`, `color = \"Blue\"`, and `pattern = \"Floral\"`.",
+        "Calling `searchItems(?#women, ?\"Dress\", ?\"Blue\", ?\"Floral\")` returns an array containing the newly seeded blue floral dress item.",
+        "Calling `getItemDetails(<new item name>)` returns the item and a non-empty shops array (at least one shop carries it).",
+        "The new item’s `photo` field is a non-empty string that starts with `/assets/generated/` and exactly matches the static filename added in REQ-32 (including extension)."
       ]
     },
     {
-      "id": "REQ-30",
-      "text": "Add a new static clothing photo file under `frontend/public/assets/generated` for the newly seeded red floral shirt item, and ensure the seeded backend item’s `photo` field exactly matches the added filename (including extension).",
-      "target": "both",
+      "id": "REQ-32",
+      "text": "Add a new static clothing photo image file for the newly seeded Women’s blue floral dress under `frontend/public/assets/generated` and ensure it loads successfully via direct browser URL `/assets/generated/<filename>` without a 404.",
+      "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-4"
+          "recent-messages"
         ],
         "quotes": [
-          "add one more shirt color red patten floral"
+          "on the category women add one blue dress with floral pattern"
         ]
       },
       "acceptanceCriteria": [
-        "A new image file exists at `frontend/public/assets/generated/men_shirt_red_floral.dim_480x640.jpeg`.",
-        "The new seeded item’s `photo` field is exactly `/assets/generated/men_shirt_red_floral.dim_480x640.jpeg`.",
-        "Loading the app and running a search for itemType=Shirt, color=Red, pattern=Floral shows the new item in results without a broken image (image loads successfully, or the existing fallback behavior is used if it fails)."
+        "A new image file exists at `frontend/public/assets/generated/women_blue_floral_dress.dim_480x640.jpeg`.",
+        "Visiting `/assets/generated/women_blue_floral_dress.dim_480x640.jpeg` in the browser returns the image (no 404).",
+        "The backend seeded item added in REQ-31 references this image exactly as `photo = \"/assets/generated/women_blue_floral_dress.dim_480x640.jpeg\"`."
       ]
     }
   ],
   "constraints": [
-    "Backend must remain a single Motoko actor in `backend/main.mo` (no additional canisters/services).",
-    "Use English for any user-facing text (no new non-English UI text required for this change).",
-    "Do not edit any frontend files under the immutable paths listed in SYSTEM_CONTEXT."
+    "Backend must remain a single Motoko actor with all logic in `backend/main.mo`.",
+    "Do not edit files under `frontend/src/components/ui` or other `frontend.immutablePaths` listed in SYSTEM_CONTEXT.",
+    "Static images must be stored and served from `frontend/public/assets/generated` and referenced by URL paths starting with `/assets/generated/`."
   ],
   "nonGoals": [
-    "Adding new search filters or changing the search UI.",
-    "Implementing new authentication or authorization flows.",
-    "Adding external image hosting or third-party integrations."
+    "Adding new UI screens or changing the navigation flow.",
+    "Adding new categories beyond the existing set (Men/Women/Kids/Casual/Bridal).",
+    "Implementing new backend APIs beyond updating seed data and the new item/photo reference."
   ],
   "imageRequirements": {
     "required": [
-      "Photo of a red floral men’s shirt (men_shirt_red_floral.dim_480x640.jpeg)"
+      "Photo of a women’s blue floral dress on a neutral background (women_blue_floral_dress.dim_480x640.jpeg)"
     ],
     "edits": []
   }

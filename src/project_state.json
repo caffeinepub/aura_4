@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 19,
+  "projectStateVersion": 21,
   "summary": "Build a fashion discovery app called AURA for Bangalore shops: users browse categories (Men/Women/Kids/Casual/Bridal/etc.), search for clothing by attributes (type/color/pattern), view matching items with available shops, and open item details to see shop contact and location.",
   "architectural_notes": [
     "App data should be scoped to shops located in Bangalore (shop directory + item availability per shop).",
@@ -15,7 +15,7 @@
     "After latest build/deployment, seeded shirt and dress item photos are still not rendering in the UI (image linking/asset path issue persists)."
   ],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Photo of a red floral men’s shirt (men_shirt_red_floral.dim_480x640.jpeg)",
+  "imageRequirements": "## Required Images\n- Photo of a women’s blue floral dress on a neutral background (women_blue_floral_dress.dim_480x640.jpeg)",
   "existing_features": [
     {
       "id": "feature-create-a-coherent-fashion-forward-visual-theme-for-the-aura-app-distinct-color-palette-not-based-on-blue-purple-typography-spacing-card-styles-and-apply-it-consistently-across-all-screens",
@@ -142,6 +142,14 @@
       "title": "Add a new static clothing photo file under `frontend/public/assets/generated` for the newly seeded red floral shirt item, and ensure the seeded backend item’s `photo` field exactly matches the added filename (including extension).",
       "reqIds": [
         "REQ-30"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-new-static-clothing-photo-image-file-for-the-newly-seeded-women-s-blue-floral-dress-under-frontend-public-assets-generated-and-ensure-it-loads-successfully-via-direct-browser-url-assets-generated-filename-without-a-404",
+      "title": "Add a new static clothing photo image file for the newly seeded Women’s blue floral dress under `frontend/public/assets/generated` and ensure it loads successfully via direct browser URL `/assets/generated/<filename>` without a 404.",
+      "reqIds": [
+        "REQ-32"
       ],
       "version": 1
     }
@@ -316,6 +324,20 @@
       "summary": "Add one additional seeded shirt item with color=\"Red\" and pattern=\"Floral\" to the backend initial dataset in `backend/main.mo` (`_initializeShops`), so that searching with filters itemType=Shirt, color=Red, pattern=Floral returns at least one result and the item has at least one shop in its item details.",
       "reqIds": [
         "REQ-29"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-31",
+      "summary": "Add a seeded Women category dress item with color=blue and pattern=floral so searches/browse under Women include a blue floral dress (with shop availability and photo if applicable).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-32",
+      "summary": "Update the backend seeded dataset in `backend/main.mo` (`_initializeShops`) to include exactly one new Women-category clothing item that is a blue dress with a floral pattern, so that searching with category=Women, itemType=\"Dress\", color=\"Blue\", pattern=\"Floral\" returns this item and `getItemDetails` for the item returns at least one shop in the shops list.",
+      "reqIds": [
+        "REQ-31"
       ],
       "status": "pending"
     }
