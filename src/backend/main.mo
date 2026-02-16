@@ -6,9 +6,9 @@ import Runtime "mo:core/Runtime";
 import Blob "mo:core/Blob";
 import MixinStorage "blob-storage/Mixin";
 import Storage "blob-storage/Storage";
-import Migration "migration";
 
-(with migration = Migration.run)
+
+
 actor {
   include MixinStorage();
 
@@ -334,10 +334,64 @@ actor {
         ];
       };
 
+      let shopWomen : Shop = {
+        name = "Women's Fashion";
+        phone = "9820034567";
+        location = "MG Road, Bangalore";
+        clothing = [
+          {
+            name = "Women's Denim Jeans";
+            category = #women;
+            itemType = "Jeans";
+            color = "Blue";
+            pattern = "Solid";
+            price = 1800;
+            photo = "/assets/generated/womens_denim_jeans.jpeg";
+          },
+          {
+            name = "Women's Casual Blue Trousers";
+            category = #women;
+            itemType = "Trousers";
+            color = "Blue";
+            pattern = "Solid";
+            price = 1500;
+            photo = "/assets/generated/womens_trousers_blue.jpeg";
+          },
+          {
+            name = "Women's White Culottes";
+            category = #women;
+            itemType = "Culottes";
+            color = "White";
+            pattern = "Solid";
+            price = 1700;
+            photo = "/assets/generated/womens_culottes_white.jpeg";
+          },
+          {
+            name = "Women's Black Leggings";
+            category = #women;
+            itemType = "Leggings";
+            color = "Black";
+            pattern = "Solid";
+            price = 1200;
+            photo = "/assets/generated/womens_leggings_black.jpeg";
+          },
+          {
+            name = "Women's Casual Blue Shorts";
+            category = #women;
+            itemType = "Shorts";
+            color = "Blue";
+            pattern = "Solid";
+            price = 1100;
+            photo = "/assets/generated/womens_shorts_blue.jpeg";
+          },
+        ];
+      };
+
       shops.add(shopA);
       shops.add(shopB);
       shops.add(shopC);
       shops.add(shopD);
+      shops.add(shopWomen);
     };
   };
 };

@@ -2,7 +2,7 @@
   "frontend/src/App.tsx": "Main app component that sets up TanStack Router with three routes (category selection, search, results) wrapped in AppLayout.",
   "frontend/src/components/aura/AppLayout.tsx": "Root layout component with header (AURA wordmark), main content outlet, footer with attribution, and backend initialization on mount.",
   "frontend/src/pages/CategorySelectionPage.tsx": "Landing page displaying category cards (Men, Women, Kids, Casual, Bridal) with icons, loading/error states, and navigation to search.",
-  "frontend/src/pages/SearchPage.tsx": "Search form page with inputs for item type, color, and pattern filters; displays selected category and navigates to results.",
+  "frontend/src/pages/SearchPage.tsx": "Search form page with inputs for item type, color, and pattern filters; displays selected category, provides suggested filter values (Shirt for Men category, Red color, Floral pattern) as clickable chips, and navigates to results.",
   "frontend/src/pages/ResultsPage.tsx": "Results page showing grid of matching items with applied filters, empty state, and item detail dialog trigger.",
   "frontend/src/components/aura/ItemCard.tsx": "Reusable card component displaying clothing item with photo, details, price, and shop availability count; includes robust image error handling with automatic fallback to hanger icon on load failure and console warning logging with item name and attempted src URL.",
   "frontend/src/components/aura/ItemDetailDialog.tsx": "Modal dialog showing full item details with photo, specifications, scrollable shop list, and photo upload control with file picker, upload button, loading/error states, and immediate photo refresh after successful upload using ExternalBlob direct URL.",

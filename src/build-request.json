@@ -1,60 +1,38 @@
 {
   "kind": "build_request",
-  "title": "Add a Women’s blue floral dress item (seeded) with matching photo asset",
+  "title": "Add Men filter suggestions for Shirt / Red / Floral",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-31",
-      "text": "Update the backend seeded dataset in `backend/main.mo` (`_initializeShops`) to include exactly one new Women-category clothing item that is a blue dress with a floral pattern, so that searching with category=Women, itemType=\"Dress\", color=\"Blue\", pattern=\"Floral\" returns this item and `getItemDetails` for the item returns at least one shop in the shops list.",
-      "target": "backend",
-      "source": {
-        "messageIds": [
-          "recent-messages"
-        ],
-        "quotes": [
-          "on the category women add one blue dress with floral pattern"
-        ]
-      },
-      "acceptanceCriteria": [
-        "When the canister is initialized (shops list is empty), `_initializeShops` seeds a new ClothingItem with `category = #women`, `itemType = \"Dress\"`, `color = \"Blue\"`, and `pattern = \"Floral\"`.",
-        "Calling `searchItems(?#women, ?\"Dress\", ?\"Blue\", ?\"Floral\")` returns an array containing the newly seeded blue floral dress item.",
-        "Calling `getItemDetails(<new item name>)` returns the item and a non-empty shops array (at least one shop carries it).",
-        "The new item’s `photo` field is a non-empty string that starts with `/assets/generated/` and exactly matches the static filename added in REQ-32 (including extension)."
-      ]
-    },
-    {
-      "id": "REQ-32",
-      "text": "Add a new static clothing photo image file for the newly seeded Women’s blue floral dress under `frontend/public/assets/generated` and ensure it loads successfully via direct browser URL `/assets/generated/<filename>` without a 404.",
+      "id": "REQ-34",
+      "text": "Update the Men-category search filters UI to explicitly include the values: item type = \"Shirt\", color = \"Red\", and pattern = \"Floral\" as selectable/suggested inputs (so a user can easily run a Men search for a red floral shirt without guessing the exact text).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "recent-messages"
+          "msg-4"
         ],
         "quotes": [
-          "on the category women add one blue dress with floral pattern"
+          "under the category men add item type Shirt ,under the color give Red and pattern Floral , add this also"
         ]
       },
       "acceptanceCriteria": [
-        "A new image file exists at `frontend/public/assets/generated/women_blue_floral_dress.dim_480x640.jpeg`.",
-        "Visiting `/assets/generated/women_blue_floral_dress.dim_480x640.jpeg` in the browser returns the image (no 404).",
-        "The backend seeded item added in REQ-31 references this image exactly as `photo = \"/assets/generated/women_blue_floral_dress.dim_480x640.jpeg\"`."
+        "When the user navigates to the Search page with category set to Men, the UI provides a clear selectable/suggested option for item type \"Shirt\".",
+        "When the user is on the Search page, the UI provides a clear selectable/suggested option for color \"Red\".",
+        "When the user is on the Search page, the UI provides a clear selectable/suggested option for pattern \"Floral\".",
+        "Selecting/entering these values and running the search navigates to Results with itemType=Shirt, color=Red, pattern=Floral populated in the query/search params."
       ]
     }
   ],
   "constraints": [
-    "Backend must remain a single Motoko actor with all logic in `backend/main.mo`.",
-    "Do not edit files under `frontend/src/components/ui` or other `frontend.immutablePaths` listed in SYSTEM_CONTEXT.",
-    "Static images must be stored and served from `frontend/public/assets/generated` and referenced by URL paths starting with `/assets/generated/`."
+    "Do not edit files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or anything under frontend/src/components/ui (compose existing components instead).",
+    "Keep the backend as a single Motoko actor (no additional backend services)."
   ],
   "nonGoals": [
-    "Adding new UI screens or changing the navigation flow.",
-    "Adding new categories beyond the existing set (Men/Women/Kids/Casual/Bridal).",
-    "Implementing new backend APIs beyond updating seed data and the new item/photo reference."
+    "Adding new categories beyond the existing Men/Women/Kids/Casual/Bridal set.",
+    "Changing backend search behavior or data model (this request is limited to exposing these filter values in the UI)."
   ],
   "imageRequirements": {
-    "required": [
-      "Photo of a women’s blue floral dress on a neutral background (women_blue_floral_dress.dim_480x640.jpeg)"
-    ],
+    "required": [],
     "edits": []
   }
 }

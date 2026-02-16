@@ -66,6 +66,19 @@ export default function SearchPage() {
                 value={itemType}
                 onChange={(e) => setItemType(e.target.value)}
               />
+              {selectedCategory === Category.men && (
+                <div className="flex items-center gap-2 mt-2">
+                  <span className="text-xs text-muted-foreground">Suggested:</span>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="h-7 text-xs"
+                    onClick={() => setItemType('Shirt')}
+                  >
+                    Shirt
+                  </Button>
+                </div>
+              )}
               <p className="text-xs text-muted-foreground">
                 What type of clothing are you looking for?
               </p>
@@ -79,6 +92,17 @@ export default function SearchPage() {
                 value={color}
                 onChange={(e) => setColor(e.target.value)}
               />
+              <div className="flex items-center gap-2 mt-2">
+                <span className="text-xs text-muted-foreground">Suggested:</span>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="h-7 text-xs"
+                  onClick={() => setColor('Red')}
+                >
+                  Red
+                </Button>
+              </div>
               <p className="text-xs text-muted-foreground">
                 Preferred color or shade
               </p>
@@ -92,6 +116,17 @@ export default function SearchPage() {
                 value={pattern}
                 onChange={(e) => setPattern(e.target.value)}
               />
+              <div className="flex items-center gap-2 mt-2">
+                <span className="text-xs text-muted-foreground">Suggested:</span>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="h-7 text-xs"
+                  onClick={() => setPattern('Floral')}
+                >
+                  Floral
+                </Button>
+              </div>
               <p className="text-xs text-muted-foreground">
                 Pattern or design style
               </p>

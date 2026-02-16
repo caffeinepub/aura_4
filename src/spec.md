@@ -1,10 +1,12 @@
 # Specification
 
 ## Summary
-**Goal:** Seed exactly one new Women’s blue floral dress item in the backend dataset and add a matching static photo asset that the item references.
+**Goal:** Make Men-category search filters explicitly suggest/select “Shirt”, “Red”, and “Floral” so users can easily run that search.
 
 **Planned changes:**
-- Update `backend/main.mo` (`_initializeShops`) to seed one new `#women` ClothingItem with `itemType = "Dress"`, `color = "Blue"`, and `pattern = "Floral"`, and ensure at least one seeded shop carries it so `getItemDetails` returns a non-empty shops list.
-- Add a new static image file at `frontend/public/assets/generated/women_blue_floral_dress.dim_480x640.jpeg` and set the seeded item’s `photo` field to exactly `/assets/generated/women_blue_floral_dress.dim_480x640.jpeg`.
+- Update the Men-category Search UI to include a selectable/suggested item type option: **Shirt**.
+- Update the Search UI to include a selectable/suggested color option: **Red**.
+- Update the Search UI to include a selectable/suggested pattern option: **Floral**.
+- Ensure selecting these options and running search navigates to Results with `itemType=Shirt`, `color=Red`, `pattern=Floral` in the query/search params.
 
-**User-visible outcome:** Searching Women → Dress → Blue → Floral returns the newly seeded dress, and its details page/response includes a working photo URL and at least one shop that carries it.
+**User-visible outcome:** On the Search page, users can pick suggested filters (Shirt, Red, Floral) and run a Men search that opens Results with those filters applied.

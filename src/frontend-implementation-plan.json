@@ -1,21 +1,22 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add generated static photo asset for Women’s blue floral dress seed item",
+  "title": "Add explicit Men filter suggestions (Shirt / Red / Floral) on Search UI",
   "requirements": [
     {
-      "id": "REQ-32",
-      "summary": "Add the generated women’s blue floral dress image to the public generated assets folder so it is served at the expected URL path.",
+      "id": "REQ-34",
+      "summary": "Expose clear selectable/suggested filter values on the Search page (Men: item type Shirt; all: color Red; pattern Floral) and ensure selections populate Results query params.",
       "acceptanceCriteria": [
-        "A new image file exists at `frontend/public/assets/generated/women_blue_floral_dress.dim_480x640.jpeg`.",
-        "Visiting `/assets/generated/women_blue_floral_dress.dim_480x640.jpeg` in the browser returns the image (no 404).",
-        "The backend seeded item added in REQ-31 references this image exactly as `photo = \"/assets/generated/women_blue_floral_dress.dim_480x640.jpeg\"`."
+        "When the user navigates to the Search page with category set to Men, the UI provides a clear selectable/suggested option for item type \"Shirt\".",
+        "When the user is on the Search page, the UI provides a clear selectable/suggested option for color \"Red\".",
+        "When the user is on the Search page, the UI provides a clear selectable/suggested option for pattern \"Floral\".",
+        "Selecting/entering these values and running the search navigates to Results with itemType=Shirt, color=Red, pattern=Floral populated in the query/search params."
       ],
       "file_operations": [
         {
-          "path": "frontend/public/assets/generated/women_blue_floral_dress.dim_480x640.jpeg",
-          "operation": "create",
-          "description": "Add the required static image asset file at this exact path and filename so it can be served directly by the frontend as `/assets/generated/women_blue_floral_dress.dim_480x640.jpeg` (no 404)."
+          "path": "frontend/src/pages/SearchPage.tsx",
+          "operation": "modify",
+          "description": "Add a small 'Suggested' UI section near the relevant inputs: show an item type suggestion of \"Shirt\" when category is Men, plus always-available suggestions for color \"Red\" and pattern \"Floral\". Implement suggestions as clickable controls that set the corresponding input state (and keep the existing free-text inputs). Compose existing shadcn/ui components (e.g., Button and existing Card/Input/Label usage) for the suggestion chips; do not edit anything under frontend/src/components/ui. Verify the component's usage instructions before implementing."
         }
       ]
     }

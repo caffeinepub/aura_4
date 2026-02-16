@@ -1,12 +1,13 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 21,
+  "projectStateVersion": 25,
   "summary": "Build a fashion discovery app called AURA for Bangalore shops: users browse categories (Men/Women/Kids/Casual/Bridal/etc.), search for clothing by attributes (type/color/pattern), view matching items with available shops, and open item details to see shop contact and location.",
   "architectural_notes": [
     "App data should be scoped to shops located in Bangalore (shop directory + item availability per shop).",
     "Seed backend with realistic Bangalore shop names/addresses (e.g., 'Vogue, Electronic City') and ensure item availability mapping covers dresses with common color+pattern combinations so filtered dress searches return shops.",
     "Seed item photo assets (or URLs) and ensure backend returns a photo reference per item so results can display attribute-relevant images (e.g., color/pattern/type) and women’s dress listings include photos across 3–4 shops.",
-    "Consider a workflow for user-provided item photos: upload (or admin import) -> store in a stable location -> return a public URL/path that the frontend can render as the item `photo`."
+    "Consider a workflow for user-provided item photos: upload (or admin import) -> store in a stable location -> return a public URL/path that the frontend can render as the item `photo`.",
+    "Support Women inventory items with richer subcategory taxonomy (e.g., Indo-Western Fusion, Celebration & Festive Sets, Contemporary Ethnic Workwear, Ready-to-Wear (Pre-Draped), Sustainable Handloom) and allow storing/displaying trend color + non-floral pattern attributes."
   ],
   "known_issues": [
     "Search with filters (e.g., type=shirt + color + pattern) shows no results due to missing/insufficient seeded shop/item availability data.",
@@ -15,7 +16,6 @@
     "After latest build/deployment, seeded shirt and dress item photos are still not rendering in the UI (image linking/asset path issue persists)."
   ],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Photo of a women’s blue floral dress on a neutral background (women_blue_floral_dress.dim_480x640.jpeg)",
   "existing_features": [
     {
       "id": "feature-create-a-coherent-fashion-forward-visual-theme-for-the-aura-app-distinct-color-palette-not-based-on-blue-purple-typography-spacing-card-styles-and-apply-it-consistently-across-all-screens",
@@ -150,6 +150,14 @@
       "title": "Add a new static clothing photo image file for the newly seeded Women’s blue floral dress under `frontend/public/assets/generated` and ensure it loads successfully via direct browser URL `/assets/generated/<filename>` without a 404.",
       "reqIds": [
         "REQ-32"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-men-category-search-filters-ui-to-explicitly-include-the-values-item-type-shirt-color-red-and-pattern-floral-as-selectable-suggested-inputs-so-a-user-can-easily-run-a-men-search-for-a-red-floral-shirt-without-guessing-the-exact-text",
+      "title": "Update the Men-category search filters UI to explicitly include the values: item type = \"Shirt\", color = \"Red\", and pattern = \"Floral\" as selectable/suggested inputs (so a user can easily run a Men search for a red floral shirt without guessing the exact text).",
+      "reqIds": [
+        "REQ-34"
       ],
       "version": 1
     }
@@ -338,6 +346,20 @@
       "summary": "Update the backend seeded dataset in `backend/main.mo` (`_initializeShops`) to include exactly one new Women-category clothing item that is a blue dress with a floral pattern, so that searching with category=Women, itemType=\"Dress\", color=\"Blue\", pattern=\"Floral\" returns this item and `getItemDetails` for the item returns at least one shop in the shops list.",
       "reqIds": [
         "REQ-31"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-33",
+      "summary": "Add 5 new Women-category inventory items with specified subcategories, 2026 trend colors, and unique non-floral patterns (Indo-Western Fusion/Transformative Teal/Geometric Artistry; Celebration & Festive Sets/Royal Aubergine/Traditional Paisley; Contemporary Ethnic Workwear/Cloud Dancer White/Heritage Checks; Ready-to-Wear (Pre-Draped)/Canary Yellow/Bold Stripes; Sustainable Handloom/Caramel Khaki/Abstract Wave).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-34",
+      "summary": "Update the seeded inventory in `backend/main.mo` (`_initializeShops`) to include 5 new `ClothingItem` entries under the main category `#women`, using the provided subcategory names as the `itemType` value, and setting each item’s `color` and `pattern` exactly as specified.",
+      "reqIds": [
+        "REQ-33"
       ],
       "status": "pending"
     }

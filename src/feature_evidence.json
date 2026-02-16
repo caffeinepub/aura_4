@@ -2,9 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-add-a-new-static-clothing-photo-image-file-for-the-newly-seeded-women-s-blue-floral-dress-under-frontend-public-assets-generated-and-ensure-it-loads-successfully-via-direct-browser-url-assets-generated-filename-without-a-404",
-      "featureTitle": "Add a new static clothing photo image file for the newly seeded Women’s blue floral dress under `frontend/public/assets/generated` and ensure it loads successfully via direct browser URL `/assets/generated/<filename>` without a 404.",
-      "files": [],
+      "featureId": "feature-update-the-men-category-search-filters-ui-to-explicitly-include-the-values-item-type-shirt-color-red-and-pattern-floral-as-selectable-suggested-inputs-so-a-user-can-easily-run-a-men-search-for-a-red-floral-shirt-without-guessing-the-exact-text",
+      "featureTitle": "Update the Men-category search filters UI to explicitly include the values: item type = \"Shirt\", color = \"Red\", and pattern = \"Floral\" as selectable/suggested inputs (so a user can easily run a Men search for a red floral shirt without guessing the exact text).",
+      "files": [
+        "frontend/src/pages/SearchPage.tsx"
+      ],
       "components": [
         "core-infrastructure@1.0.2",
         "shadcn-ui@1.0.0",
@@ -14,7 +16,7 @@
         "blob-storage@4.0.0"
       ],
       "testIds": [
-        "REQ-32"
+        "REQ-34"
       ],
       "confidence": "high"
     }
