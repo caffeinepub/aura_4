@@ -1,0 +1,327 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 19,
+  "summary": "Build a fashion discovery app called AURA for Bangalore shops: users browse categories (Men/Women/Kids/Casual/Bridal/etc.), search for clothing by attributes (type/color/pattern), view matching items with available shops, and open item details to see shop contact and location.",
+  "architectural_notes": [
+    "App data should be scoped to shops located in Bangalore (shop directory + item availability per shop).",
+    "Seed backend with realistic Bangalore shop names/addresses (e.g., 'Vogue, Electronic City') and ensure item availability mapping covers dresses with common color+pattern combinations so filtered dress searches return shops.",
+    "Seed item photo assets (or URLs) and ensure backend returns a photo reference per item so results can display attribute-relevant images (e.g., color/pattern/type) and women’s dress listings include photos across 3–4 shops.",
+    "Consider a workflow for user-provided item photos: upload (or admin import) -> store in a stable location -> return a public URL/path that the frontend can render as the item `photo`."
+  ],
+  "known_issues": [
+    "Search with filters (e.g., type=shirt + color + pattern) shows no results due to missing/insufficient seeded shop/item availability data.",
+    "Searching dresses with color + pattern filters returns no shop data (likely missing seeded dress items and/or availability mappings for those filter combinations).",
+    "Item photos are still not showing when clicking an item (item detail view), despite having requested/seeded shirt and dress photos.",
+    "After latest build/deployment, seeded shirt and dress item photos are still not rendering in the UI (image linking/asset path issue persists)."
+  ],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Photo of a red floral men’s shirt (men_shirt_red_floral.dim_480x640.jpeg)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-coherent-fashion-forward-visual-theme-for-the-aura-app-distinct-color-palette-not-based-on-blue-purple-typography-spacing-card-styles-and-apply-it-consistently-across-all-screens",
+      "title": "Create a coherent, fashion-forward visual theme for the AURA app (distinct color palette not based on blue/purple, typography, spacing, card styles) and apply it consistently across all screens.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-aura-frontend-app-shell-with-navigation-and-screens-category-selection-screen-men-women-kids-casual-bridal-etc-search-screen-with-filters-item-type-color-pattern-and-results-screen-showing-matching-items-image-cards-and-the-number-of-shops-carrying-each-item",
+      "title": "Build the AURA frontend app shell with navigation and screens: Category selection screen (Men/Women/Kids/Casual/Bridal/etc.), Search screen with filters (item type, color, pattern), and Results screen showing matching items (image cards) and the number of shops carrying each item.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-item-detail-view-page-or-modal-opened-by-clicking-an-item-picture-card-the-detail-view-must-display-the-list-of-shops-where-the-item-is-available-and-for-each-shop-show-shop-name-contact-phone-number-and-location-address-bangalore",
+      "title": "Implement an item detail view (page or modal) opened by clicking an item picture/card. The detail view must display the list of shops where the item is available, and for each shop show: shop name, contact phone number, and location/address (Bangalore).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-wire-the-frontend-to-the-backend-using-react-query-for-loading-categories-executing-searches-and-loading-item-details-include-loading-empty-error-states-e-g-no-items-found-for-these-filters",
+      "title": "Wire the frontend to the backend using React Query for: loading categories, executing searches, and loading item details; include loading/empty/error states (e.g., “No items found for these filters”).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-assets-for-aura-branding-logo-wordmark-and-a-neutral-fashion-background-and-render-them-in-the-ui-e-g-header-branding-and-or-landing-area-store-generated-images-under-frontend-public-assets-generated-and-reference-them-directly-from-the-frontend",
+      "title": "Add generated static assets for AURA branding (logo/wordmark and a neutral fashion background) and render them in the UI (e.g., header branding and/or landing area). Store generated images under frontend/public/assets/generated and reference them directly from the frontend.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-item-photo-reference-to-each-clothing-item-returned-by-the-backend-and-render-that-photo-in-the-results-item-cards-and-in-the-item-detail-dialog-replacing-the-generic-hanger-icon-when-an-item-photo-is-available",
+      "title": "Add an item photo reference to each clothing item returned by the backend, and render that photo in the results item cards and in the item detail dialog (replacing the generic hanger icon when an item photo is available).",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-frontend-results-and-item-detail-views-surface-shop-availability-for-dress-searches-once-backend-seed-data-is-expanded-i-e-shop-count-on-result-cards-is-non-zero-and-the-item-detail-dialog-lists-shops-with-name-phone-location",
+      "title": "Ensure the frontend results and item detail views surface shop availability for dress searches once backend seed data is expanded (i.e., shop count on result cards is non-zero and the item detail dialog lists shops with name/phone/location).",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-seeded-clothing-items-so-searches-return-attribute-relevant-photos-including-a-men-s-white-casual-striped-shirt-result-that-displays-a-matching-shirt-image-in-both-the-results-card-and-the-item-detail-dialog",
+      "title": "Add seeded clothing items so searches return attribute-relevant photos, including a men’s white casual striped shirt result that displays a matching shirt image in both the results card and the item detail dialog.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-requested-item-photos-as-static-frontend-assets-under-frontend-public-assets-generated-and-use-these-asset-paths-as-the-photo-values-in-seeded-backend-items-use-assets-generated-urls",
+      "title": "Add the requested item photos as static frontend assets under `frontend/public/assets/generated` and use these asset paths as the `photo` values in seeded backend items (use `/assets/generated/...` URLs).",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-new-static-clothing-photos-for-men-s-shirts-and-women-s-dresses-under-frontend-public-assets-generated-so-they-can-be-reliably-displayed-from-local-asset-paths",
+      "title": "Add new static clothing photos for men’s shirts and women’s dresses under `frontend/public/assets/generated` so they can be reliably displayed from local asset paths.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-that-when-a-user-clicks-a-result-card-the-item-detail-dialog-displays-the-item-photo-if-the-provided-photo-path-is-invalid-or-fails-to-load-by-falling-back-to-the-hanger-placeholder-image-avoid-broken-image-ui",
+      "title": "Ensure that when a user clicks a result card, the item detail dialog displays the item photo if the provided `photo` path is invalid or fails to load by falling back to the hanger placeholder image (avoid broken-image UI).",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-missing-clothing-photo-image-files-under-frontend-public-assets-generated-so-that-every-seeded-photo-path-returned-by-the-backend-resolves-to-an-existing-static-file-and-loads-successfully-in-the-browser",
+      "title": "Add the missing clothing photo image files under `frontend/public/assets/generated` so that every seeded `photo` path returned by the backend resolves to an existing static file and loads successfully in the browser.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-every-clothing-item-photo-referenced-by-the-backend-seed-data-is-present-as-a-static-file-under-frontend-public-assets-generated-and-can-be-loaded-by-the-browser-via-a-direct-url-no-404s-add-any-missing-image-files-using-the-exact-filenames-referenced-by-the-app",
+      "title": "Ensure every clothing-item photo referenced by the backend seed data is present as a static file under `frontend/public/assets/generated` and can be loaded by the browser via a direct URL (no 404s). Add any missing image files using the exact filenames referenced by the app.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-improve-debuggability-of-photo-loading-failures-when-an-item-photo-fails-to-load-image-onerror-log-a-clear-console-warning-that-includes-the-item-name-and-the-resolved-src-url-used-by-the-img-tag",
+      "title": "Improve debuggability of photo loading failures: when an item photo fails to load (image `onError`), log a clear console warning that includes the item name and the resolved `src` URL used by the `<img>` tag.",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-ui-control-in-the-item-detail-view-that-lets-a-user-select-an-image-file-and-upload-it-to-set-replace-that-item-s-photo-then-immediately-refresh-the-item-detail-view-so-the-newly-uploaded-photo-is-shown",
+      "title": "Add a UI control in the item detail view that lets a user select an image file and upload it to set/replace that item’s photo, then immediately refresh the item detail view so the newly uploaded photo is shown.",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-new-static-clothing-photo-file-under-frontend-public-assets-generated-for-the-newly-seeded-red-floral-shirt-item-and-ensure-the-seeded-backend-item-s-photo-field-exactly-matches-the-added-filename-including-extension",
+      "title": "Add a new static clothing photo file under `frontend/public/assets/generated` for the newly seeded red floral shirt item, and ensure the seeded backend item’s `photo` field exactly matches the added filename (including extension).",
+      "reqIds": [
+        "REQ-30"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "App branding/setup for fashion app named AURA",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Category browsing (Men, Women, Kids, Casual, Bridal, etc.)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Search for clothing items with filters (e.g., shirt/dress, color, pattern)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Search results show list of shops that have the requested item available",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Item/shop detail view: clicking a picture shows shop name, contact number, and location",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Use a Bangalore shops dataset as the basis for listings/availability",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Implement a Bangalore shops dataset in the backend (seeded/static initial data) containing: shop name, contact phone number, and a human-readable location/address (Bangalore), plus a catalog of clothing items and an availability mapping between items and shops.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Add backend query methods to support the app flows: (1) list available categories (Men, Women, Kids, Casual, Bridal, etc.), (2) search items by category and optional filters (type like shirt/dress, color, pattern), and (3) fetch item details including the list of shops that have the item available with shop contact and location.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Add/adjust seeded (dummy) backend shop+item data so common searches (e.g., type=shirt with color+pattern) return results; ensure item detail view shows item/dress photo along with shop name, phone, and location.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Update backend search so filtering by item type, color, and pattern is case-insensitive and tolerant of user input variations (e.g., searching \"shirt\" should match items stored as \"Shirt\").",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Expand seeded (dummy) Bangalore shop + clothing catalog data so common searches return results, including at least multiple \"Shirt\" items with realistic color/pattern combinations and availability across more than one shop where applicable.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Expand the backend seeded dataset in backend/main.mo (_initializeShops) to include additional Bangalore shops (including an example like \"Vogue, Electronic City\") with phone number and Bangalore location, and ensure each added shop has clothing items seeded so that searching for dresses by color + pattern returns matching items.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Fix backend text matching for search filters so itemType/color/pattern matching is reliably case-insensitive (e.g., \"dress\" matches stored \"Dress\") and tolerant of common user input variations such as leading/trailing spaces.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Add attribute-relevant item photos for search results (e.g., men’s white casual striped shirt) and seed women’s dress items with photos across 3–4 Bangalore shops",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Expand the backend seeded Bangalore shop dataset by adding more shop names and data, with a focus on women’s dresses: ensure at least 3–4 distinct shops have women’s dress items available, and each women’s dress item has a photo.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Update backend seeded data in `backend/main.mo` so all men’s shirt items and women’s dress items use local photo asset paths (i.e., `/assets/generated/...`) instead of external `pexels.com` URLs, and ensure at least 3 men’s shirt items and 3 women’s dress items have non-empty `photo` values pointing to the new assets.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-21",
+      "summary": "Update backend seeded shop/item data in `backend/main.mo` so that all seeded items use local `/assets/generated/...` photo paths (no external `pexels.com` or other remote URLs), and ensure those local filenames match the actual files added to `frontend/public/assets/generated`.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-23",
+      "summary": "Make backend seed data photo paths in `backend/main.mo` exactly match the actual filenames in `frontend/public/assets/generated` (including extension and any `.dim_...` suffix). Ensure that seeded `photo` strings are valid public URLs from the frontend (start with `/assets/generated/`).",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-24",
+      "summary": "Support adding user-uploaded photos to items (upload flow + store/serve the image and link it as an item photo in the app)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-25",
+      "summary": "Add backend support for attaching a user-uploaded photo to an existing clothing item by item name, including storing the uploaded image data in the canister and returning a stable identifier that can be used to render the image later.",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-26",
+      "summary": "Expose a backend read path for uploaded photos so the frontend can display them in <img> tags (either via an HTTP endpoint served by the canister or by returning a data URL/base64 payload that can be rendered by the browser).",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-28",
+      "summary": "Persist user-uploaded photo metadata (and any required item->photo reference mapping) across canister upgrades; add a conditional backend migration when introducing new stable state.",
+      "reqIds": [
+        "REQ-28"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-29",
+      "summary": "Add an additional seeded men’s shirt item with color=red and pattern=floral so searches for red floral shirts return results (with shop availability and photo if applicable).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-30",
+      "summary": "Add one additional seeded shirt item with color=\"Red\" and pattern=\"Floral\" to the backend initial dataset in `backend/main.mo` (`_initializeShops`), so that searching with filters itemType=Shirt, color=Red, pattern=Floral returns at least one result and the item has at least one shop in its item details.",
+      "reqIds": [
+        "REQ-29"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "AURA",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

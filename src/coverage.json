@@ -1,0 +1,44 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-16T03:01:01.110Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 2,
+    "implemented": 1,
+    "items": [
+      {
+        "id": "REQ-29",
+        "summary": "Add one additional seeded shirt item with color=\"Red\" and pattern=\"Floral\" to the backend initial dataset in `backend/main.mo` (`_initializeShops`), so that searching with filters itemType=Shirt, color=Red, pattern=Floral returns at least one result and the item has at least one shop in its item details.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-30",
+        "summary": "Add a new static clothing photo file under `frontend/public/assets/generated` for the newly seeded red floral shirt item, and ensure the seeded backend item’s `photo` field exactly matches the added filename (including extension).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/generated/men_shirt_red_floral.dim_480x640.jpeg"
+        ],
+        "matchedFiles": [
+          "frontend/public/assets/generated/men_shirt_red_floral.dim_480x640.jpeg"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "build-request.json",
+    "feature_evidence.json",
+    "frontend-implementation-plan.json",
+    "frontend/public/assets/generated/men_shirt_red_floral.dim_480x640.jpeg",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

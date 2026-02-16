@@ -1,0 +1,23 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add static asset for seeded red floral men’s shirt",
+  "requirements": [
+    {
+      "id": "REQ-30",
+      "summary": "Add the required static generated clothing image asset so the seeded red floral shirt photo path resolves correctly in the UI.",
+      "acceptanceCriteria": [
+        "A new image file exists at `frontend/public/assets/generated/men_shirt_red_floral.dim_480x640.jpeg`.",
+        "The new seeded item’s `photo` field is exactly `/assets/generated/men_shirt_red_floral.dim_480x640.jpeg`.",
+        "Loading the app and running a search for itemType=Shirt, color=Red, pattern=Floral shows the new item in results without a broken image (image loads successfully, or the existing fallback behavior is used if it fails)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/men_shirt_red_floral.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the static clothing photo asset file for the newly seeded red floral men’s shirt. This filename and extension must exactly match `/assets/generated/men_shirt_red_floral.dim_480x640.jpeg` so existing UI components (e.g., ItemCard/ItemDetailDialog using normalizePhotoPath) can render it without a broken image."
+        }
+      ]
+    }
+  ]
+}

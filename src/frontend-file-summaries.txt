@@ -1,0 +1,13 @@
+{
+  "frontend/src/App.tsx": "Main app component that sets up TanStack Router with three routes (category selection, search, results) wrapped in AppLayout.",
+  "frontend/src/components/aura/AppLayout.tsx": "Root layout component with header (AURA wordmark), main content outlet, footer with attribution, and backend initialization on mount.",
+  "frontend/src/pages/CategorySelectionPage.tsx": "Landing page displaying category cards (Men, Women, Kids, Casual, Bridal) with icons, loading/error states, and navigation to search.",
+  "frontend/src/pages/SearchPage.tsx": "Search form page with inputs for item type, color, and pattern filters; displays selected category and navigates to results.",
+  "frontend/src/pages/ResultsPage.tsx": "Results page showing grid of matching items with applied filters, empty state, and item detail dialog trigger.",
+  "frontend/src/components/aura/ItemCard.tsx": "Reusable card component displaying clothing item with photo, details, price, and shop availability count; includes robust image error handling with automatic fallback to hanger icon on load failure and console warning logging with item name and attempted src URL.",
+  "frontend/src/components/aura/ItemDetailDialog.tsx": "Modal dialog showing full item details with photo, specifications, scrollable shop list, and photo upload control with file picker, upload button, loading/error states, and immediate photo refresh after successful upload using ExternalBlob direct URL.",
+  "frontend/src/hooks/useAuraQueries.ts": "React Query hooks for backend operations including list categories, search items, get item details, compute shop count, and upload item photos with automatic query invalidation on success and proper type casting for ExternalBlob.",
+  "frontend/src/index.css": "Global styles with warm OKLCH color system (sand/cream base, terracotta primary, taupe secondary) for light and dark modes, avoiding blue/purple palette.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending theme with Inter font family, custom shadows, and OKLCH color tokens mapped from CSS variables.",
+  "frontend/src/utils/assetPaths.ts": "Utility function to normalize item photo paths for safe rendering, handling local asset paths and external URLs consistently."
+}
