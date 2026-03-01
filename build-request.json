@@ -1,0 +1,106 @@
+{
+  "kind": "build_request",
+  "title": "Add relevant images for every search result item",
+  "projectName": "AURA",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Ensure every clothing item returned by backend `searchItems` has a non-empty, valid local photo path (served from `/assets/generated/...`) so that every search result can display an item-relevant image instead of the generic fallback.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "additonally add relevant images for each search result"
+        ]
+      },
+      "acceptanceCriteria": [
+        "For all seeded `ClothingItem`s in `backend/main.mo`, the `photo` field is non-empty and starts with `/assets/generated/`.",
+        "Running searches that return seeded items results in each item having a `photo` value that points to an existing static asset filename (no empty strings)."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Add the missing static image assets under `frontend/public/assets/generated` for the photo filenames referenced by backend seeded items, using attribute-relevant visuals (matching item type/color/pattern) so search results show meaningful images.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "additonally add relevant images for each search result"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each backend-seeded `/assets/generated/<filename>` resolves to an existing file under `frontend/public/assets/generated/<filename>`.",
+        "Visiting the Results page for searches that return seeded items displays item photos (not the hanger fallback) for all results whose `photo` paths exist."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Update the backend seeded `photo` filenames as needed to exactly match the generated static asset filenames (including extension and any `.dim_<WxH>` suffixes), so the Results grid reliably loads images without 404s.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "additonally add relevant images for each search result"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All `photo` strings in `backend/main.mo` seed data exactly match the filenames added under `frontend/public/assets/generated` (case-sensitive match).",
+        "Direct browser navigation to each `/assets/generated/<filename>` used by seeded items returns the image (no 404)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Backend must remain a single Motoko actor in `backend/main.mo`; only add `backend/migration.mo` if an upgrade to existing stable state is required.",
+    "Do not edit files in `frontend/src/components/ui` or other frontend immutable paths listed in SYSTEM_CONTEXT.",
+    "Do not proxy static images through the backend; images must be served as static frontend assets under `frontend/public/assets/generated`."
+  ],
+  "nonGoals": [
+    "Do not integrate any external image APIs or third-party image hosting.",
+    "Do not add new authentication providers beyond Internet Identity.",
+    "Do not add new backend services or databases."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Photo-real studio product photo of a men’s blue solid casual shirt (men_casual_shirt_blue_solid.dim_480x640.jpeg)",
+      "Photo-real studio product photo of a men’s red floral shirt (mens_red_floral_shirt_mens_shirt_red_floral.dim_480x640.jpeg)",
+      "Photo-real studio product photo of a women’s red floral designer dress (women_designer_dress_red_floral.dim_480x640.jpeg)",
+      "Photo-real studio product photo of a kids blue t-shirt (kids_blue_tshirt.dim_480x640.jpeg)",
+      "Photo-real studio product photo of a kids pink polka-dot party dress (kids_party_dress_pink_polka_dots.dim_480x640.jpeg)",
+      "Photo-real studio product photo of a men’s white striped formal shirt (men_formal_shirt_white_striped.dim_480x640.jpeg)",
+      "Photo-real studio product photo of a women’s yellow solid casual shirt (women_casual_shirt_yellow_solid.dim_480x640.jpeg)",
+      "Photo-real studio product photo of a women’s solid pink casual dress (women_casual_pink_dress.dim_480x640.jpeg)",
+      "Photo-real studio product photo of a men’s black solid slim-fit shirt (men_slim_fit_shirt_black_solid.dim_480x640.jpeg)",
+      "Photo-real studio product photo of a women’s green embroidered ethnic dress (women_ethnic_dress_green_embroidered.dim_480x640.jpeg)",
+      "Photo-real studio product photo of a women’s ivory ruffle dress (women_ivory_ruffle_dress.dim_480x640.jpeg)",
+      "Photo-real studio product photo of a women’s blue floral dress (women_blue_floral_dress.dim_480x640.jpeg)",
+      "Photo-real studio product photo of a women’s blue solid formal dress (women_formal_dress_blue_solid.dim_480x640.jpeg)",
+      "Photo-real studio product photo of a men’s pink patterned party shirt (men_party_shirt_pink_patterned.dim_480x640.jpeg)",
+      "Photo-real studio product photo of a kids yellow floral dress (kids_flower_print_dress_yellow_floral.dim_480x640.jpeg)",
+      "Photo-real studio product photo of a women’s blue patterned dress (women_patterned_dress_blue.dim_480x640.jpeg)",
+      "Photo-real studio product photo of a women’s yellow solid casual dress (women_casual_yellow_dress.dim_480x640.jpeg)",
+      "Photo-real studio product photo of women’s blue denim jeans (womens_denim_jeans.dim_480x640.jpeg)",
+      "Photo-real studio product photo of women’s blue trousers (womens_trousers_blue.dim_480x640.jpeg)",
+      "Photo-real studio product photo of women’s white culottes (womens_culottes_white.dim_480x640.jpeg)",
+      "Photo-real studio product photo of women’s black leggings (womens_leggings_black.dim_480x640.jpeg)",
+      "Photo-real studio product photo of women’s blue shorts (womens_shorts_blue.dim_480x640.jpeg)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

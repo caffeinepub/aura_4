@@ -1,0 +1,127 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "AURA — Add static generated images for all seeded search result items",
+  "requirements": [
+    {
+      "id": "REQ-2",
+      "summary": "Add missing generated product photos as static frontend assets so seeded search results display item-relevant images instead of the hanger fallback.",
+      "acceptanceCriteria": [
+        "Each backend-seeded `/assets/generated/<filename>` resolves to an existing file under `frontend/public/assets/generated/<filename>`.",
+        "Visiting the Results page for searches that return seeded items displays item photos (not the hanger fallback) for all results whose `photo` paths exist."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/men_casual_shirt_blue_solid.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/men_casual_shirt_blue_solid.dim_480x640.jpeg` (men’s blue solid casual shirt) so `/assets/generated/men_casual_shirt_blue_solid.dim_480x640.jpeg` loads successfully."
+        },
+        {
+          "path": "frontend/public/assets/generated/mens_red_floral_shirt_mens_shirt_red_floral.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/mens_red_floral_shirt_mens_shirt_red_floral.dim_480x640.jpeg` (men’s red floral shirt) so `/assets/generated/mens_red_floral_shirt_mens_shirt_red_floral.dim_480x640.jpeg` loads successfully."
+        },
+        {
+          "path": "frontend/public/assets/generated/women_designer_dress_red_floral.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/women_designer_dress_red_floral.dim_480x640.jpeg` (women’s red floral designer dress) so `/assets/generated/women_designer_dress_red_floral.dim_480x640.jpeg` loads successfully."
+        },
+        {
+          "path": "frontend/public/assets/generated/kids_blue_tshirt.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/kids_blue_tshirt.dim_480x640.jpeg` (kids blue t-shirt) so `/assets/generated/kids_blue_tshirt.dim_480x640.jpeg` loads successfully."
+        },
+        {
+          "path": "frontend/public/assets/generated/kids_party_dress_pink_polka_dots.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/kids_party_dress_pink_polka_dots.dim_480x640.jpeg` (kids pink polka-dot party dress) so `/assets/generated/kids_party_dress_pink_polka_dots.dim_480x640.jpeg` loads successfully."
+        },
+        {
+          "path": "frontend/public/assets/generated/men_formal_shirt_white_striped.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/men_formal_shirt_white_striped.dim_480x640.jpeg` (men’s white striped formal shirt) so `/assets/generated/men_formal_shirt_white_striped.dim_480x640.jpeg` loads successfully."
+        },
+        {
+          "path": "frontend/public/assets/generated/women_casual_shirt_yellow_solid.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/women_casual_shirt_yellow_solid.dim_480x640.jpeg` (women’s yellow solid casual shirt) so `/assets/generated/women_casual_shirt_yellow_solid.dim_480x640.jpeg` loads successfully."
+        },
+        {
+          "path": "frontend/public/assets/generated/women_casual_pink_dress.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/women_casual_pink_dress.dim_480x640.jpeg` (women’s solid pink casual dress) so `/assets/generated/women_casual_pink_dress.dim_480x640.jpeg` loads successfully."
+        },
+        {
+          "path": "frontend/public/assets/generated/men_slim_fit_shirt_black_solid.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/men_slim_fit_shirt_black_solid.dim_480x640.jpeg` (men’s black solid slim-fit shirt) so `/assets/generated/men_slim_fit_shirt_black_solid.dim_480x640.jpeg` loads successfully."
+        },
+        {
+          "path": "frontend/public/assets/generated/women_ethnic_dress_green_embroidered.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/women_ethnic_dress_green_embroidered.dim_480x640.jpeg` (women’s green embroidered ethnic dress) so `/assets/generated/women_ethnic_dress_green_embroidered.dim_480x640.jpeg` loads successfully."
+        },
+        {
+          "path": "frontend/public/assets/generated/women_ivory_ruffle_dress.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/women_ivory_ruffle_dress.dim_480x640.jpeg` (women’s ivory ruffle dress) so `/assets/generated/women_ivory_ruffle_dress.dim_480x640.jpeg` loads successfully."
+        },
+        {
+          "path": "frontend/public/assets/generated/women_blue_floral_dress.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/women_blue_floral_dress.dim_480x640.jpeg` (women’s blue floral dress) so `/assets/generated/women_blue_floral_dress.dim_480x640.jpeg` loads successfully."
+        },
+        {
+          "path": "frontend/public/assets/generated/women_formal_dress_blue_solid.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/women_formal_dress_blue_solid.dim_480x640.jpeg` (women’s blue solid formal dress) so `/assets/generated/women_formal_dress_blue_solid.dim_480x640.jpeg` loads successfully."
+        },
+        {
+          "path": "frontend/public/assets/generated/men_party_shirt_pink_patterned.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/men_party_shirt_pink_patterned.dim_480x640.jpeg` (men’s pink patterned party shirt) so `/assets/generated/men_party_shirt_pink_patterned.dim_480x640.jpeg` loads successfully."
+        },
+        {
+          "path": "frontend/public/assets/generated/kids_flower_print_dress_yellow_floral.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/kids_flower_print_dress_yellow_floral.dim_480x640.jpeg` (kids yellow floral dress) so `/assets/generated/kids_flower_print_dress_yellow_floral.dim_480x640.jpeg` loads successfully."
+        },
+        {
+          "path": "frontend/public/assets/generated/women_patterned_dress_blue.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/women_patterned_dress_blue.dim_480x640.jpeg` (women’s blue patterned dress) so `/assets/generated/women_patterned_dress_blue.dim_480x640.jpeg` loads successfully."
+        },
+        {
+          "path": "frontend/public/assets/generated/women_casual_yellow_dress.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/women_casual_yellow_dress.dim_480x640.jpeg` (women’s yellow solid casual dress) so `/assets/generated/women_casual_yellow_dress.dim_480x640.jpeg` loads successfully."
+        },
+        {
+          "path": "frontend/public/assets/generated/womens_denim_jeans.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/womens_denim_jeans.dim_480x640.jpeg` (women’s blue denim jeans) so `/assets/generated/womens_denim_jeans.dim_480x640.jpeg` loads successfully."
+        },
+        {
+          "path": "frontend/public/assets/generated/womens_trousers_blue.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/womens_trousers_blue.dim_480x640.jpeg` (women’s blue trousers) so `/assets/generated/womens_trousers_blue.dim_480x640.jpeg` loads successfully."
+        },
+        {
+          "path": "frontend/public/assets/generated/womens_culottes_white.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/womens_culottes_white.dim_480x640.jpeg` (women’s white culottes) so `/assets/generated/womens_culottes_white.dim_480x640.jpeg` loads successfully."
+        },
+        {
+          "path": "frontend/public/assets/generated/womens_leggings_black.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/womens_leggings_black.dim_480x640.jpeg` (women’s black leggings) so `/assets/generated/womens_leggings_black.dim_480x640.jpeg` loads successfully."
+        },
+        {
+          "path": "frontend/public/assets/generated/womens_shorts_blue.dim_480x640.jpeg",
+          "operation": "create",
+          "description": "Add the generated static product image asset at `frontend/public/assets/generated/womens_shorts_blue.dim_480x640.jpeg` (women’s blue shorts) so `/assets/generated/womens_shorts_blue.dim_480x640.jpeg` loads successfully."
+        }
+      ]
+    }
+  ]
+}

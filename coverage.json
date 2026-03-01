@@ -1,0 +1,102 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-17T06:17:40.004Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 3,
+    "implemented": 1,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Ensure every clothing item returned by backend `searchItems` has a non-empty, valid local photo path (served from `/assets/generated/...`) so that every search result can display an item-relevant image instead of the generic fallback.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Add the missing static image assets under `frontend/public/assets/generated` for the photo filenames referenced by backend seeded items, using attribute-relevant visuals (matching item type/color/pattern) so search results show meaningful images.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/generated/men_casual_shirt_blue_solid.dim_480x640.jpeg",
+          "frontend/public/assets/generated/mens_red_floral_shirt_mens_shirt_red_floral.dim_480x640.jpeg",
+          "frontend/public/assets/generated/women_designer_dress_red_floral.dim_480x640.jpeg",
+          "frontend/public/assets/generated/kids_blue_tshirt.dim_480x640.jpeg",
+          "frontend/public/assets/generated/kids_party_dress_pink_polka_dots.dim_480x640.jpeg",
+          "frontend/public/assets/generated/men_formal_shirt_white_striped.dim_480x640.jpeg",
+          "frontend/public/assets/generated/women_casual_shirt_yellow_solid.dim_480x640.jpeg",
+          "frontend/public/assets/generated/women_casual_pink_dress.dim_480x640.jpeg",
+          "frontend/public/assets/generated/men_slim_fit_shirt_black_solid.dim_480x640.jpeg",
+          "frontend/public/assets/generated/women_ethnic_dress_green_embroidered.dim_480x640.jpeg",
+          "frontend/public/assets/generated/women_ivory_ruffle_dress.dim_480x640.jpeg",
+          "frontend/public/assets/generated/women_blue_floral_dress.dim_480x640.jpeg",
+          "frontend/public/assets/generated/women_formal_dress_blue_solid.dim_480x640.jpeg",
+          "frontend/public/assets/generated/men_party_shirt_pink_patterned.dim_480x640.jpeg",
+          "frontend/public/assets/generated/kids_flower_print_dress_yellow_floral.dim_480x640.jpeg",
+          "frontend/public/assets/generated/women_patterned_dress_blue.dim_480x640.jpeg",
+          "frontend/public/assets/generated/women_casual_yellow_dress.dim_480x640.jpeg",
+          "frontend/public/assets/generated/womens_denim_jeans.dim_480x640.jpeg",
+          "frontend/public/assets/generated/womens_trousers_blue.dim_480x640.jpeg",
+          "frontend/public/assets/generated/womens_culottes_white.dim_480x640.jpeg",
+          "frontend/public/assets/generated/womens_leggings_black.dim_480x640.jpeg",
+          "frontend/public/assets/generated/womens_shorts_blue.dim_480x640.jpeg"
+        ],
+        "matchedFiles": [
+          "frontend/public/assets/generated/men_casual_shirt_blue_solid.dim_480x640.jpeg",
+          "frontend/public/assets/generated/mens_red_floral_shirt_mens_shirt_red_floral.dim_480x640.jpeg",
+          "frontend/public/assets/generated/women_designer_dress_red_floral.dim_480x640.jpeg",
+          "frontend/public/assets/generated/kids_blue_tshirt.dim_480x640.jpeg",
+          "frontend/public/assets/generated/kids_party_dress_pink_polka_dots.dim_480x640.jpeg",
+          "frontend/public/assets/generated/men_formal_shirt_white_striped.dim_480x640.jpeg",
+          "frontend/public/assets/generated/women_casual_shirt_yellow_solid.dim_480x640.jpeg",
+          "frontend/public/assets/generated/women_casual_pink_dress.dim_480x640.jpeg",
+          "frontend/public/assets/generated/men_slim_fit_shirt_black_solid.dim_480x640.jpeg",
+          "frontend/public/assets/generated/women_ethnic_dress_green_embroidered.dim_480x640.jpeg",
+          "frontend/public/assets/generated/women_ivory_ruffle_dress.dim_480x640.jpeg",
+          "frontend/public/assets/generated/women_blue_floral_dress.dim_480x640.jpeg",
+          "frontend/public/assets/generated/women_formal_dress_blue_solid.dim_480x640.jpeg",
+          "frontend/public/assets/generated/men_party_shirt_pink_patterned.dim_480x640.jpeg",
+          "frontend/public/assets/generated/kids_flower_print_dress_yellow_floral.dim_480x640.jpeg"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Update the backend seeded `photo` filenames as needed to exactly match the generated static asset filenames (including extension and any `.dim_<WxH>` suffixes), so the Results grid reliably loads images without 404s.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "build-request.json",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-implementation-plan.json",
+    "frontend/public/assets/generated/kids_blue_tshirt.dim_480x640.jpeg",
+    "frontend/public/assets/generated/kids_flower_print_dress_yellow_floral.dim_480x640.jpeg",
+    "frontend/public/assets/generated/kids_party_dress_pink_polka_dots.dim_480x640.jpeg",
+    "frontend/public/assets/generated/men_casual_shirt_blue_solid.dim_480x640.jpeg",
+    "frontend/public/assets/generated/men_formal_shirt_white_striped.dim_480x640.jpeg",
+    "frontend/public/assets/generated/men_party_shirt_pink_patterned.dim_480x640.jpeg",
+    "frontend/public/assets/generated/men_slim_fit_shirt_black_solid.dim_480x640.jpeg",
+    "frontend/public/assets/generated/mens_red_floral_shirt_mens_shirt_red_floral.dim_480x640.jpeg",
+    "frontend/public/assets/generated/women_blue_floral_dress.dim_480x640.jpeg",
+    "frontend/public/assets/generated/women_casual_pink_dress.dim_480x640.jpeg",
+    "frontend/public/assets/generated/women_casual_shirt_yellow_solid.dim_480x640.jpeg",
+    "frontend/public/assets/generated/women_designer_dress_red_floral.dim_480x640.jpeg",
+    "frontend/public/assets/generated/women_ethnic_dress_green_embroidered.dim_480x640.jpeg",
+    "frontend/public/assets/generated/women_formal_dress_blue_solid.dim_480x640.jpeg",
+    "frontend/public/assets/generated/women_ivory_ruffle_dress.dim_480x640.jpeg",
+    "frontend/src/config.ts",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

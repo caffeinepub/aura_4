@@ -1,0 +1,23 @@
+{
+  "backend/main.mo": "Motoko backend defining shops, clothing items, search filters, item details, photo storage, and initialization logic using in‑memory lists and blob storage.",
+  "feature_evidence.json": "Feature report documenting a missing-image-assets requirement with metadata, components involved, and related tests.",
+  "frontend-file-summaries.txt": "Prewritten summaries describing major frontend React files and their roles in routing, pages, components, hooks, and utilities.",
+  "frontend/index.css": "Tailwind base styles defining OKLCH color variables for light and dark themes and applying global background/foreground defaults.",
+  "frontend/index.html": "Basic HTML entry point mounting the React app and loading main.tsx.",
+  "frontend/src/App.tsx": "Sets up TanStack Router with root layout and three routes: category selection, search, and results.",
+  "frontend/src/components/aura/AppLayout.tsx": "Root layout with header, footer, and shop initialization via backend actor on mount.",
+  "frontend/src/components/aura/ItemCard.tsx": "Displays a clothing item card with image handling, category badges, price, and shop availability count.",
+  "frontend/src/components/aura/ItemDetailDialog.tsx": "Modal dialog showing item details, shop list, and image upload workflow with live preview.",
+  "frontend/src/hooks/useActor.ts": "React hook creating and refreshing the backend actor based on Internet Identity, invalidating dependent queries on change.",
+  "frontend/src/hooks/useAuraQueries.ts": "Defines React Query hooks for categories, item searches, item details, shop counts, and photo upload using an actor backend.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides an Internet Identity auth context and provider using Dfinity AuthClient with login, logout, and status handling.",
+  "frontend/src/index.css": "Sets Tailwind base styles and defines custom light/dark theme CSS variables and utility classes.",
+  "frontend/src/main.tsx": "Bootstraps the React app with QueryClientProvider and InternetIdentityProvider.",
+  "frontend/src/pages/CategorySelectionPage.tsx": "Displays category cards fetched from backend and navigates to the search page on selection.",
+  "frontend/src/pages/ResultsPage.tsx": "Runs item searches based on filters and shows results with optional detail dialog and error/loading states.",
+  "frontend/src/pages/SearchPage.tsx": "Form page for entering item filters and navigating to results, with category-based suggestions.",
+  "frontend/src/utils/assetPaths.ts": "Normalizes item photo URLs, handling absolute links and local asset paths.",
+  "frontend/src/utils/categoryPresentation.ts": "Maps categories to human-readable labels and icon components with fallbacks.",
+  "frontend/tailwind.config.js": "Configures Tailwind with dark mode, extended theme options (fonts, colors, animations), and plugins for typography, container queries, and animations.",
+  "project_state.json": "Stores project metadata, image requirements, existing features, and pending feature requests related to adding correct product images."
+}
